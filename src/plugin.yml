@@ -1,0 +1,20 @@
+name: EscapeLag
+main: com.mcml.space.core.EscapeLag
+version: 2.1.0-b557
+softdepend: [ProtocolLib, RPG_Items, RPGItems]
+author: Vlvxingze
+authors: [Vlele,IzzelAliz, Sotr]
+website: "https://github.com/Vlvxingze/EscapeLag"
+description: A collection of optimization, fixes and others practical features.
+database: false
+
+commands:
+  el:
+    description: EscapeLag
+    usage: "/el help"
+  op:
+    description: OP/DEOP Command Fixed
+    usage: "/el help"
+  deop:
+    description: OP/DEOP Command Fixed
+    usage: "/el help"
