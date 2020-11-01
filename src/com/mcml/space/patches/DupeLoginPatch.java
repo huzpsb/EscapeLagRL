@@ -13,21 +13,21 @@ import org.bukkit.event.player.AsyncPlayerPreLoginEvent.Result;
 import org.bukkit.plugin.Plugin;
 
 public class DupeLoginPatch implements Listener {
-   public static void init(Plugin plugin) {
-      if (Patches.fixDupeOnline) {
-         Bukkit.getPluginManager().registerEvents(new DupeLoginPatch(), plugin);
-         AzureAPI.log(Locale.isNative() ? "子模块 - 多重在线 已启动" : "Submodule - DupeLoginPatch has been enabled");
-      }
-   }
+    public static void init(Plugin plugin) {
+        if (Patches.fixDupeOnline) {
+            Bukkit.getPluginManager().registerEvents(new DupeLoginPatch(), plugin);
+            AzureAPI.log(Locale.isNative() ? "子模块 - 多重在线 已启动" : "Submodule - DupeLoginPatch has been enabled");
+        }
+    }
 
-   @EventHandler(
-      priority = EventPriority.LOWEST
-   )
-   public void onLogin(AsyncPlayerPreLoginEvent evt) {
-      if (evt.getLoginResult() == Result.ALLOWED && PlayerList.contains(evt.getName())) {
-         evt.setLoginResult(Result.KICK_OTHER);
-         evt.setKickMessage(Patches.messageKickDupeOnline);
-      }
+    @EventHandler(
+            priority = EventPriority.LOWEST
+    )
+    public void onLogin(AsyncPlayerPreLoginEvent evt) {
+        if (evt.getLoginResult() == Result.ALLOWED && PlayerList.contains(evt.getName())) {
+            evt.setLoginResult(Result.KICK_OTHER);
+            evt.setKickMessage(Patches.messageKickDupeOnline);
+        }
 
-   }
+    }
 }

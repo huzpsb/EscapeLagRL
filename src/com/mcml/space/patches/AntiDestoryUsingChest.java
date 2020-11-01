@@ -12,27 +12,27 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.InventoryHolder;
 
 public class AntiDestoryUsingChest implements Listener {
-   public static void init() {
-      if (Patches.protectUsingChest) {
-         Bukkit.getPluginManager().registerEvents(new AntiDestoryUsingChest(), EscapeLag.plugin);
-         AzureAPI.log("反箱子刷物品已经加载了!");
-      }
+    public static void init() {
+        if (Patches.protectUsingChest) {
+            Bukkit.getPluginManager().registerEvents(new AntiDestoryUsingChest(), EscapeLag.plugin);
+            AzureAPI.log("反箱子刷物品已经加载了!");
+        }
 
-   }
+    }
 
-   @EventHandler
-   public void onBreakBlock(BlockBreakEvent event) {
-      if (!event.isCancelled()) {
-         Block block = event.getBlock();
-         BlockState state = block.getState();
-         if (state instanceof InventoryHolder) {
-            InventoryHolder ih = (InventoryHolder)block.getState();
-            if (!ih.getInventory().getViewers().isEmpty()) {
-               event.setCancelled(true);
-               event.getPlayer().sendMessage(Patches.AntiBreakUsingChestWarnMessage);
+    @EventHandler
+    public void onBreakBlock(BlockBreakEvent event) {
+        if (!event.isCancelled()) {
+            Block block = event.getBlock();
+            BlockState state = block.getState();
+            if (state instanceof InventoryHolder) {
+                InventoryHolder ih = (InventoryHolder) block.getState();
+                if (!ih.getInventory().getViewers().isEmpty()) {
+                    event.setCancelled(true);
+                    event.getPlayer().sendMessage(Patches.AntiBreakUsingChestWarnMessage);
+                }
             }
-         }
 
-      }
-   }
+        }
+    }
 }

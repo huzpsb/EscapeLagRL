@@ -13,16 +13,16 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 public class AntiBedExplode implements Listener {
-   @EventHandler
-   public void CheckInterackBed(PlayerInteractEvent e) {
-      if (Patches.noBedExplore) {
-         Player p = e.getPlayer();
-         Block block = e.getClickedBlock();
-         if (e.getAction() == Action.RIGHT_CLICK_BLOCK && block.getType() == Material.BED_BLOCK && (p.getWorld().getEnvironment() == Environment.NETHER || p.getWorld().getEnvironment() == Environment.THE_END)) {
-            e.setCancelled(true);
-            AzureAPI.log((CommandSender)p, Patches.AntiBedExplodeTipMessage);
-         }
-      }
+    @EventHandler
+    public void CheckInterackBed(PlayerInteractEvent e) {
+        if (Patches.noBedExplore) {
+            Player p = e.getPlayer();
+            Block block = e.getClickedBlock();
+            if (e.getAction() == Action.RIGHT_CLICK_BLOCK && block.getType() == Material.BED_BLOCK && (p.getWorld().getEnvironment() == Environment.NETHER || p.getWorld().getEnvironment() == Environment.THE_END)) {
+                e.setCancelled(true);
+                AzureAPI.log(p, Patches.AntiBedExplodeTipMessage);
+            }
+        }
 
-   }
+    }
 }

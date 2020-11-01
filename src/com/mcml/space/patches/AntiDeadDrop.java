@@ -12,22 +12,22 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerDropItemEvent;
 
 public class AntiDeadDrop implements Listener {
-   public static void init() {
-      if (!VersionLevel.isForge() && Patches.fixDupeDropItem) {
-         Bukkit.getPluginManager().registerEvents(new AntiDeadDrop(), EscapeLag.plugin);
-         AzureAPI.log("反假死刷物品补丁已加载!");
-      }
+    public static void init() {
+        if (!VersionLevel.isForge() && Patches.fixDupeDropItem) {
+            Bukkit.getPluginManager().registerEvents(new AntiDeadDrop(), EscapeLag.plugin);
+            AzureAPI.log("反假死刷物品补丁已加载!");
+        }
 
-   }
+    }
 
-   @EventHandler
-   public void onDrop(PlayerDropItemEvent event) {
-      if (!event.isCancelled()) {
-         Player player = event.getPlayer();
-         if (!PlayerList.contains(player) || player.isDead()) {
-            event.setCancelled(true);
-         }
-      }
+    @EventHandler
+    public void onDrop(PlayerDropItemEvent event) {
+        if (!event.isCancelled()) {
+            Player player = event.getPlayer();
+            if (!PlayerList.contains(player) || player.isDead()) {
+                event.setCancelled(true);
+            }
+        }
 
-   }
+    }
 }
