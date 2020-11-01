@@ -41,14 +41,12 @@ public class SmartConfigs {
         try {
             backup.createNewFile();
         } catch (IOException e1) {
-            // TODO Auto-generated catch block
             e1.printStackTrace();
         }
         FileConfiguration configuration = YamlConfiguration.loadConfiguration(file);
         try {
             configuration.save(backup);
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return configuration;
@@ -59,7 +57,6 @@ public class SmartConfigs {
         try {
             bukkitConfig = loadAndBackup(bukkitFile);
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         long heapMb = Runtime.getRuntime().maxMemory() / 1024L / 1024L;
@@ -93,7 +90,6 @@ public class SmartConfigs {
             @SuppressWarnings("unused")
             FileConfiguration spigotConfig = loadAndBackup(spigotFile);
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }

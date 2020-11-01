@@ -35,24 +35,6 @@ public class EscapeLagCommand {
                     return true;
                 }
 
-                if (args[0].equalsIgnoreCase("iknown")) {
-                    UpgradeHelper.setKnown(true);
-                    return true;
-                }
-
-                if (args[0].equalsIgnoreCase("updateon")) {
-                    FileConfiguration MainConfig = (EscapeLag.configurations.get("CoreConfig.yml")).getValue();
-                    MainConfig.set("AutoUpdate", true);
-
-                    try {
-                        MainConfig.save((EscapeLag.configurations.get("CoreConfig.yml")).getKey());
-                    } catch (IOException var8) {
-                    }
-
-                    Core.AutoUpdate = true;
-                    sender.sendMessage(LocalizedHelper.Sucesstoopenupdate);
-                }
-
                 if (args[0].equalsIgnoreCase("help")) {
                     sender.sendMessage(LocalizedHelper.HelpLine1);
                     sender.sendMessage(LocalizedHelper.HelpLine2);
@@ -61,19 +43,6 @@ public class EscapeLagCommand {
                     sender.sendMessage(LocalizedHelper.HelpLine5);
                     sender.sendMessage(LocalizedHelper.HelpLine6);
                     sender.sendMessage(LocalizedHelper.HelpLine7);
-                }
-
-                if (args[0].equalsIgnoreCase("antiattack")) {
-                    if (args.length == 1) {
-                        sender.sendMessage("§a后置参数:");
-                        sender.sendMessage("§edownload 下载反压测模块");
-                        return true;
-                    }
-
-                    if (args[1].equalsIgnoreCase("download")) {
-                        sender.sendMessage("§e操作开始执行中...");
-                        Bukkit.getScheduler().runTaskAsynchronously(EscapeLag.plugin, AutoUpgrade::DownloadAntiAttack);
-                    }
                 }
 
                 if (args[0].equalsIgnoreCase("autoset")) {
@@ -106,7 +75,6 @@ public class EscapeLagCommand {
                         }
                     }
                 } catch (Exception e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
 

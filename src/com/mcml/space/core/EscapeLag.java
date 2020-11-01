@@ -181,7 +181,6 @@ public class EscapeLag extends JavaPlugin {
         try {
             AutoSetServer(false);
         } catch (Throwable e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         AzureAPI.log("EscapeLag —— 新一代的优化/稳定插件");
@@ -198,6 +197,7 @@ public class EscapeLag extends JavaPlugin {
         AzureAPI.log("|||" + devs.get(0) + "/EscapeLag 合作作品.|||");
         AzureAPI.log("|||" + AzureAPI.concatsBetween(devs, 1, ", ") + " 合作开发.|||");
         AzureAPI.log("§a您正在使用EscapeLag构建号 " + Core.internalVersion);
+        AzureAPI.log("§a本版本已经被huzpsb解除所有网络功能.");
     }
 
     public void onDisable() {
@@ -219,9 +219,7 @@ public class EscapeLag extends JavaPlugin {
     public void bindModules() {
         AzureAPI.log("Setup modules..");
         Ticker.init();
-        AutoUpgrade.init(this);
         PlayerList.init(this);
-        UpgradeHelper.init(this);
         CensoredChat.init(this);
         ExplosionController.init(this);
         SpawnerGuard.init(this);

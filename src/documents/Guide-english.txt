@@ -21,7 +21,6 @@ Tip: If your prompt information option has "" or '' (left blank but needs to kee
 
 2.CoreConfig - the core configuration for the plugin
 PluginPrefix: '&3EscapeLag' #Prefix for plugin display
-AutoUpdate: true # Whether to enable automatic update, recommended to open, can automatically update when there is a BUG
 Internal-version: build-308 #Working version of the plugin, do not modify
 Language: zh_cn #plugin language settings, currently supported: zh_cn中文,en_GB English
 
